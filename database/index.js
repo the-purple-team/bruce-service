@@ -14,7 +14,7 @@ let productInfoSchema = mongoose.Schema({
 
 let ProductInfo = mongoose.model('ProductInfo', productInfoSchema);
 
-const updateDatabase = ({}) => {
+const updateDatabase = (dataArray) => {
   // let productInfo = new ProductInfo(pass data in here)
   // productInfo.save((err, productInfo) => {
   //   err ? console.log(err) : console.log(productInfo);
