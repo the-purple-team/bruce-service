@@ -34,8 +34,7 @@ app.get('/fill-database-with-mock-data', (req, res) => {
     counter++;
   }
   res.send(fakeInfoArr);
-
-  // updateDatabase();
+  updateDatabase(fakeInfoArr);
 });
 
 app.listen(port, () =>
