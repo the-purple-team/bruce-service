@@ -20,3 +20,11 @@ let productInfoSchema = mongoose.Schema({
   colors: Array,
 });
 ```
+
+### Seeding Script
+
+To seed the database with 100 items matching the datashape of the above schema run:
+
+```
+npm run seedDb
+```
