@@ -1,7 +1,8 @@
 {
   "scripts": {
     "react": "webpack -d --watch",
-    "server": "nodemon server/index.js"
+    "server": "nodemon server/index.js",
+    "seedDb": "node utilities/_dbSeeder.js"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
