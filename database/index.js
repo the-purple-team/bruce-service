@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/fec', { useNewUrlParser: true });
 
-let productInfoSchema = mongoose.Schema({
-  // id: { type: Number, required: true, unique: true },
+let productSchema = mongoose.Schema({
+  id: { type: Number, required: true, unique: true },
   title: String,
   description: String,
   product_price: Number,
@@ -12,9 +12,10 @@ let productInfoSchema = mongoose.Schema({
   colors: Array,
 });
 
-let ProductInfo = mongoose.model('ProductInfo', productInfoSchema);
+let ProductInfo = mongoose.model('ProductInfo', productSchema);
 
 const updateDatabase = (dataArray) => {
+  let failure = false;
   dataArray.forEach(
     ({ id, title, description, product_price, seller, colors }) => {
       let productInfo = new ProductInfo({
@@ -26,10 +27,16 @@ const updateDatabase = (dataArray) => {
         colors,
       });
       productInfo.save((err, productInfo) => {
-        err ? console.log(err) : console.log(productInfo);
+        err
+          ? (() => {
+              console.log(err);
+              failure = true;
+            })()
+          : null;
       });
     }
   );
+  !failure ? console.log('Success!') : null;
 };
 
 module.exports.updateDatabase = updateDatabase;

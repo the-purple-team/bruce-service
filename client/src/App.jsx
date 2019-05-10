@@ -6,7 +6,7 @@ class App extends React.Component {
   }
 
   render() {
-    <h1>Welcome to Amazon!</h1>;
+    return <h1>Welcome to Amazon!</h1>;
   }
 }
 
