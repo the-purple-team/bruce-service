@@ -1,4 +1,5 @@
 const express = require('express');
+const queryDatabase = require('../database/index.js').queryDatabase;
 
 const app = express();
 const port = 8080;
@@ -6,7 +7,9 @@ const port = 8080;
 app.use(express.static(__dirname + '/../client/dist'));
 
 app.get('/products/:id', (req, res) => {
-  res.send(req.params.id);
+  queryDatabase(req.params.id, (result) => {
+    res.send(result);
+  });
 });
 
 app.listen(port, () =>
