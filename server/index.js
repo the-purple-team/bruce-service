@@ -6,7 +6,9 @@ const port = 8080;
 
 app.use(express.static(__dirname + '/../client/dist'));
 
-app.get('/products/:id', (req, res) => {
+app.use('/products/:id', express.static(__dirname + '/../client/dist'));
+
+app.get('/:id', (req, res) => {
   queryDatabase(req.params.id, (result) => {
     res.send(result);
   });

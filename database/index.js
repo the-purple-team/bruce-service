@@ -42,7 +42,7 @@ const updateDatabase = (dataArray) => {
 const queryDatabase = (id, cb) => {
   // look up row with id and return the data
   ProductInfo.find({ id: id }).exec((err, result) =>
-    err ? console.log(err) : cb(result)
+    err ? console.log(err) : cb(result[0])
   );
 };
 

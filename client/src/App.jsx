@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Wrapper } from './elements.jsx';
+import Product from './Product.jsx';
 const $ = require('jquery');
 
 class App extends React.Component {
@@ -12,19 +13,26 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    if (
-      window.location.href.split('/')[
-        window.location.href.split('/').length - 1
-      ] !== ''
-    ) {
+    if (window.location.pathname !== '/') {
       $.ajax({
         type: 'GET',
-        url: `${window.location.href}`,
-        success: (result) => {
-          console.log(result);
+        url: `${window.location.pathname.slice(9)}`,
+        success: ({
+          id,
+          title,
+          description,
+          product_price,
+          seller,
+          colors,
+        }) => {
           this.setState((state) => ({
             currentProduct: {
-              id: result,
+              id: id,
+              title: title,
+              description: description,
+              product_price: product_price,
+              seller: seller,
+              colors: colors,
             },
           }));
         },
@@ -36,7 +44,8 @@ class App extends React.Component {
     return (
       <Wrapper>
         <h1>Welcome to Amazon!</h1>
-        <div>{window.location.href}</div>
+        <div>{window.location.pathname}</div>
+        <Product currentProduct={this.state.currentProduct} />
       </Wrapper>
     );
   }
