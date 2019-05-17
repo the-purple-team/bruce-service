@@ -45,7 +45,9 @@ class App extends React.Component {
       <Wrapper>
         <h1>Welcome to Amazon!</h1>
         <div>{window.location.pathname}</div>
-        <Product currentProduct={this.state.currentProduct} />
+        {window.location.pathname !== '/' ? (
+          <Product currentProduct={this.state.currentProduct} />
+        ) : null}
       </Wrapper>
     );
   }

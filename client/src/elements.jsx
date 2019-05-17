@@ -54,6 +54,23 @@ export const Seller = ({ children }) => (
   </div>
 );
 
-export const Colors = styled.div`
-  font-size: 25px;
+export const Color = styled.div`
+  font-size: 22px;
+  border: solid;
+  border-color: ${(props) =>
+    props.CurrentColor === props.itemColor ? 'yellow' : 'black'};
+  width: 6%;
+  padding: 8px;
+  display: inline-block;
+  margin: auto;
+  margin-top: 10px;
+  margin-right: 3px;
+  cursor: pointer;
+`;
+
+export const CurrentColor = styled.div`
+  font-size: 17px;
+  line-height: 19px;
+  color: #555;
+  vertical-align: top;
 `;
