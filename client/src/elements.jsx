@@ -9,6 +9,7 @@ export const Title = styled.div`
   font-size: 25px;
   font-family: 'Amazon Ember', Arial, sans-serif;
   line-height: 1.3 !important;
+  margin-top: 10px;
 `;
 
 export const Description = styled.div`
@@ -88,7 +89,7 @@ export const CurrentColor = styled.div`
 export const StyledLink = styled.a`
   display: block;
   width: 30%;
-  font-size: 20px;
+  font-size: 25px;
   margin: auto;
   margin-top: 6px;
   margin-bottom: 6px;
@@ -103,7 +104,7 @@ export const NavButton = styled.a`
   border-color: black;
   border: solid;
   display: block;
-  width: 8%;
+  width: 6%;
   margin: auto;
   border-radius: 5px;
 `;
