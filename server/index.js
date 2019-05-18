@@ -10,7 +10,7 @@ app.use(express.static(__dirname + '/../client/dist'));
 
 app.use('/products/:id', express.static(__dirname + '/../client/dist'));
 
-app.get('/:id', (req, res) => {
+app.get('/product/:id', (req, res) => {
   queryDatabase(req.params.id, (result) => {
     res.send(result);
   });

@@ -71,7 +71,9 @@ export const Color = styled.div`
   margin-right: 3px;
   cursor: pointer;
   color: ${(props) =>
-    props.itemColor !== 'white' && props.itemColor !== 'azure'
+    props.itemColor !== 'white' &&
+    props.itemColor !== 'azure' &&
+    props.itemColor !== 'ivory'
       ? `${props.itemColor}`
       : 'grey'};
 `;
@@ -81,4 +83,27 @@ export const CurrentColor = styled.div`
   line-height: 19px;
   color: #555;
   vertical-align: top;
+`;
+
+export const StyledLink = styled.a`
+  display: block;
+  width: 30%;
+  font-size: 20px;
+  margin: auto;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  text-decoration: none;
+`;
+
+export const NavButton = styled.a`
+  font-size: 22px;
+  text-decoration: none;
+  border-width: 3px;
+  padding: 6px;
+  border-color: black;
+  border: solid;
+  display: block;
+  width: 8%;
+  margin: auto;
+  border-radius: 5px;
 `;
