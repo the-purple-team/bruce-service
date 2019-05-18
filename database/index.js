@@ -39,4 +39,19 @@ const updateDatabase = (dataArray) => {
   !failure ? console.log('Success!') : null;
 };
 
+const queryDatabase = (id, cb) => {
+  // look up row with id and return the data
+  ProductInfo.find({ id: id }).exec((err, result) =>
+    err ? console.log(err) : cb(result[0])
+  );
+};
+
+const queryAllFromDatabase = (cb) => {
+  ProductInfo.find().exec((err, result) =>
+    err ? console.log(err) : cb(result[0])
+  );
+};
+
 module.exports.updateDatabase = updateDatabase;
+module.exports.queryDatabase = queryDatabase;
+module.exports.queryAllFromDatabase = queryAllFromDatabase;
