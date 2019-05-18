@@ -34,5 +34,4 @@ npm run seedDb
 Get one item from database:
 ```
 /product/id
-
 ```
