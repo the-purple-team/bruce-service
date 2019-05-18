@@ -6,16 +6,17 @@ export const Wrapper = ({ children }) => (
 );
 
 export const Title = styled.div`
-  font-size: 50px;
-  font-weight: 400;
-  color: #111;
-  font-size: 21px !important;
+  font-size: 25px;
+  font-family: 'Amazon Ember', Arial, sans-serif;
+  line-height: 1.3 !important;
 `;
 
 export const Description = styled.div`
-  font-size: 25px;
+  font-size: 16px;
   margin-bottom: 18px !important;
   margin-top: 10px !important;
+  display: list-item;
+  white-space: pre;
 `;
 
 const PriceNumber = styled.div`
@@ -33,6 +34,7 @@ export const Price = ({ children }) => (
       lineHeight: '19px',
       color: '#555',
       verticalAlign: 'top',
+      marginBottom: '8px',
     }}
   >
     Price: <PriceNumber>${children}</PriceNumber>
@@ -49,7 +51,7 @@ const SellerName = styled.div`
 `;
 
 export const Seller = ({ children }) => (
-  <div>
+  <div style={{ marginBottom: '8px' }}>
     by <SellerName>{children}</SellerName>
   </div>
 );
@@ -57,15 +59,21 @@ export const Seller = ({ children }) => (
 export const Color = styled.div`
   font-size: 22px;
   border: solid;
+  border-width: 1px;
   border-color: ${(props) =>
     props.CurrentColor === props.itemColor ? 'yellow' : 'black'};
-  width: 6%;
+  min-width: 6%;
   padding: 8px;
   display: inline-block;
+  height: 25px;
   margin: auto;
   margin-top: 10px;
   margin-right: 3px;
   cursor: pointer;
+  color: ${(props) =>
+    props.itemColor !== 'white' && props.itemColor !== 'azure'
+      ? `${props.itemColor}`
+      : 'grey'};
 `;
 
 export const CurrentColor = styled.div`

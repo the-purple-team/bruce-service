@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Wrapper } from './elements.jsx';
 import Product from './Product.jsx';
+import AllProductsLinkGenerator from './AllProductsLinkGenerator.jsx';
 const $ = require('jquery');
 
 class App extends React.Component {
@@ -9,10 +10,21 @@ class App extends React.Component {
     super(props);
     this.state = {
       currentProduct: {},
+      allProducts: [],
     };
   }
 
   componentDidMount() {
+    $.ajax({
+      type: 'GET',
+      url: '/getallproducts/',
+      success: (results) => {
+        console.log(results);
+        this.setState((state) => ({
+          allProducts: results,
+        }));
+      },
+    });
     if (window.location.pathname !== '/') {
       $.ajax({
         type: 'GET',
@@ -44,10 +56,14 @@ class App extends React.Component {
     return (
       <Wrapper>
         <h1>Welcome to Amazon!</h1>
-        <div>{window.location.pathname}</div>
+        <a style={{ marginBottom: '10px', fontSize: '18px' }} href="/">
+          Home
+        </a>
         {window.location.pathname !== '/' ? (
           <Product currentProduct={this.state.currentProduct} />
-        ) : null}
+        ) : (
+          <AllProductsLinkGenerator allProducts={this.state.allProducts} />
+        )}
       </Wrapper>
     );
   }

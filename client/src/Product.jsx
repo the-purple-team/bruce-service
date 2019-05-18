@@ -16,7 +16,6 @@ const Colors = ({ children, updateCurrentColor, currentColor }) =>
             itemColor={item}
             currentColor={currentColor}
             onClick={() => updateCurrentColor(item)}
-            style={{ color: item }}
           >
             {item}
           </Color>
@@ -34,9 +33,16 @@ class Product extends React.Component {
   }
 
   updateCurrentColor(item) {
-    console.log(item);
     this.setState((state) => ({
       currentColor: item,
+    }));
+  }
+
+  componentDidMount() {
+    console.log(this.props.currentProduct);
+    // TODO: Fix this.props.currentProduct.id is undefined
+    this.setState((state) => ({
+      currentColor: `${this.props.currentProduct.id}`,
     }));
   }
 
@@ -55,7 +61,18 @@ class Product extends React.Component {
         <Title>{title}</Title>
         <Seller>{seller}</Seller>
         <Price>{product_price}</Price>
-        <CurrentColor>Color: {this.state.currentColor}</CurrentColor>
+        <CurrentColor>
+          Color:{' '}
+          <div
+            style={{
+              fontWeight: '700',
+              display: 'inline-block',
+              color: '#111',
+            }}
+          >
+            {this.state.currentColor}
+          </div>
+        </CurrentColor>
         <Colors
           currentColor={this.state.currentColor}
           updateCurrentColor={this.updateCurrentColor}
