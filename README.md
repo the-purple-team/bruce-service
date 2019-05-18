@@ -28,3 +28,11 @@ To seed the database with 100 items matching the datashape of the above schema r
 ```
 npm run seedDb
 ```
+
+### API
+
+Get one item from database:
+```
+/product/id
+
+```
