@@ -62,7 +62,7 @@ export const Color = styled.div`
   border: solid;
   border-width: 1px;
   border-color: ${(props) =>
-    props.CurrentColor === props.itemColor ? 'yellow' : 'black'};
+    props.currentColor === props.itemColor ? 'red' : 'black'};
   min-width: 6%;
   padding: 8px;
   display: inline-block;
