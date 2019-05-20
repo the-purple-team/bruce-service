@@ -2,7 +2,9 @@ import React from 'react';
 import { StyledLink } from './elements.jsx';
 
 const Link = (props) => (
-  <StyledLink href={`/products/${props.id}`}>{props.id}. {props.name} -></StyledLink>
+  <StyledLink href={`/products/${props.id}`}>
+    {props.id}. {props.name} >
+  </StyledLink>
 );
 
 const AllProductsLinkGenerator = (props) => {
