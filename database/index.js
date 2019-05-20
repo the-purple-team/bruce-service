@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-// const Schema = mongoose.Schema;
 
 mongoose.connect('mongodb://localhost/fec', { useNewUrlParser: true });
 
@@ -47,9 +46,21 @@ const queryDatabase = (id, cb) => {
 };
 
 const queryAllFromDatabase = (cb) => {
-  ProductInfo.find().exec((err, result) =>
-    err ? console.log(err) : cb(result[0])
-  );
+  var allProducts = [];
+  ProductInfo.find({}, (err, result) => {
+    if (err) {
+      console.log('TCL: queryAllFromDatabase -> err', err);
+    } else {
+      result.forEach(({ title, id }) => {
+        let obj = {
+          title: title,
+          id: id,
+        };
+        allProducts.push(obj);
+      });
+      cb(allProducts);
+    }
+  });
 };
 
 module.exports.updateDatabase = updateDatabase;

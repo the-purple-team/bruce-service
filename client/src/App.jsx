@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Wrapper } from './elements.jsx';
+import { Wrapper, NavButton } from './elements.jsx';
 import Product from './Product.jsx';
 import AllProductsLinkGenerator from './AllProductsLinkGenerator.jsx';
 const $ = require('jquery');
@@ -10,25 +10,25 @@ class App extends React.Component {
     super(props);
     this.state = {
       currentProduct: {},
-      allProducts: [],
+      allProducts: [{ title: 'Blank', id: 45 }],
     };
   }
 
   componentDidMount() {
     $.ajax({
       type: 'GET',
-      url: '/getallproducts/',
+      url: '/getallproducts',
       success: (results) => {
-        console.log(results);
         this.setState((state) => ({
           allProducts: results,
         }));
       },
+      error: (err) => console.log('TCL: App -> componentDidMount -> err', err),
     });
     if (window.location.pathname !== '/') {
       $.ajax({
         type: 'GET',
-        url: `${window.location.pathname.slice(9)}`,
+        url: `/product${window.location.pathname.slice(9)}`,
         success: ({
           id,
           title,
@@ -56,9 +56,7 @@ class App extends React.Component {
     return (
       <Wrapper>
         <h1>Welcome to Amazon!</h1>
-        <a style={{ marginBottom: '10px', fontSize: '18px' }} href="/">
-          Home
-        </a>
+        <NavButton href="/">Home</NavButton>
         {window.location.pathname !== '/' ? (
           <Product currentProduct={this.state.currentProduct} />
         ) : (

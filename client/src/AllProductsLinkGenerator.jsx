@@ -1,11 +1,15 @@
 import React from 'react';
+import { StyledLink } from './elements.jsx';
 
-const Link = (props) => <a href={`/products/${props.id}`}>{props.name}</a>;
+const Link = (props) => (
+  <StyledLink href={`/products/${props.id}`}>
+    {props.id}. {props.name} >
+  </StyledLink>
+);
 
 const AllProductsLinkGenerator = (props) => {
-  console.log(props.allProducts);
   return props.allProducts.map((item) => (
-    <Link id={item.id} name={item.title} />
+    <Link key={item.id} id={item.id} name={item.title} />
   ));
 };
 

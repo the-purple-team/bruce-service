@@ -1,14 +1,15 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-export const Wrapper = ({ children }) => (
-  <div style={{ textAlign: 'center' }}>{children}</div>
-);
+export const Wrapper = styled.div`
+  text-align: center;
+`;
 
 export const Title = styled.div`
   font-size: 25px;
   font-family: 'Amazon Ember', Arial, sans-serif;
   line-height: 1.3 !important;
+  margin-top: 10px;
 `;
 
 export const Description = styled.div`
@@ -61,7 +62,7 @@ export const Color = styled.div`
   border: solid;
   border-width: 1px;
   border-color: ${(props) =>
-    props.CurrentColor === props.itemColor ? 'yellow' : 'black'};
+    props.currentColor === props.itemColor ? 'red' : 'black'};
   min-width: 6%;
   padding: 8px;
   display: inline-block;
@@ -69,11 +70,18 @@ export const Color = styled.div`
   margin: auto;
   margin-top: 10px;
   margin-right: 3px;
+  border-radius: 3px;
   cursor: pointer;
   color: ${(props) =>
-    props.itemColor !== 'white' && props.itemColor !== 'azure'
+    props.itemColor !== 'white' &&
+    props.itemColor !== 'azure' &&
+    props.itemColor !== 'ivory'
       ? `${props.itemColor}`
       : 'grey'};
+
+  &:hover {
+    background-color: rgb(236, 236, 236);
+  }
 `;
 
 export const CurrentColor = styled.div`
@@ -81,4 +89,40 @@ export const CurrentColor = styled.div`
   line-height: 19px;
   color: #555;
   vertical-align: top;
+`;
+
+export const StyledLink = styled.a`
+  display: block;
+  width: 25%;
+  font-size: 25px;
+  margin: auto;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  text-decoration: none;
+
+  &: hover {
+    color: grey;
+    font-size: 30px;
+    width: 30%;
+  }
+`;
+
+export const NavButton = styled.a`
+  font-size: 22px;
+  text-decoration: none;
+  border-width: 3px;
+  padding: 6px;
+  border-color: rgb(38, 47, 63);
+  border: solid;
+  display: block;
+  width: 6%;
+  margin: auto;
+  border-radius: 5px;
+  color: rgb(38, 47, 63);
+
+  &:hover {
+    color: white;
+    background-color: rgb(38, 47, 63);
+    border-color: #d0d0d0;
+  }
 `;
