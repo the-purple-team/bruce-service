@@ -117,10 +117,10 @@ export const NavButton = styled.a`
   border-radius: 5px;
   color: white;
   background-color: rgb(38, 47, 63);
+  border: solid;
+  border-width: 3px;
 
   &:hover {
-    border: solid;
-    border-width: 3px;
     border-color: rgb(38, 47, 63);
     color: rgb(38, 47, 63);
     background-color: white;
