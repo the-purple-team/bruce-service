@@ -60,9 +60,9 @@ export const Seller = ({ children }) => (
 export const Color = styled.div`
   font-size: 22px;
   border: solid;
-  border-width: 1px;
+  border-width: 2px;
   border-color: ${(props) =>
-    props.currentColor === props.itemColor ? 'red' : 'black'};
+    props.currentColor === props.itemColor ? '#E47911' : 'black'};
   min-width: 6%;
   padding: 8px;
   display: inline-block;
