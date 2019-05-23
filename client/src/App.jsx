@@ -15,16 +15,6 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    $.ajax({
-      type: 'GET',
-      url: '/getallproducts',
-      success: (results) => {
-        this.setState((state) => ({
-          allProducts: results,
-        }));
-      },
-      error: (err) => console.log('TCL: App -> componentDidMount -> err', err),
-    });
     if (window.location.pathname !== '/') {
       $.ajax({
         type: 'GET',
@@ -48,6 +38,18 @@ class App extends React.Component {
             },
           }));
         },
+      });
+    } else {
+      $.ajax({
+        type: 'GET',
+        url: '/getallproducts',
+        success: (results) => {
+          this.setState((state) => ({
+            allProducts: results,
+          }));
+        },
+        error: (err) =>
+          console.log('TCL: App -> componentDidMount -> err', err),
       });
     }
   }
