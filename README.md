@@ -35,3 +35,11 @@ Get one item from database:
 ```
 /product/id
 ```
+
+### Render Specific Product (Front End)
+
+To render a specific product on the frontend, simply hit this endpoint:
+```
+/products/id
+```
+It will render this services' App and make a call to `/product/id` automatically to fetch the required data.
