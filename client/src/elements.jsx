@@ -110,19 +110,19 @@ export const StyledLink = styled.a`
 export const NavButton = styled.a`
   font-size: 22px;
   text-decoration: none;
-  border-width: 3px;
   padding: 6px;
-  border-color: rgb(38, 47, 63);
-  border: solid;
   display: block;
   width: 6%;
   margin: auto;
   border-radius: 5px;
-  color: rgb(38, 47, 63);
+  color: white;
+  background-color: rgb(38, 47, 63);
 
   &:hover {
-    color: white;
-    background-color: rgb(38, 47, 63);
-    border-color: #d0d0d0;
+    border: solid;
+    border-width: 3px;
+    border-color: rgb(38, 47, 63);
+    color: rgb(38, 47, 63);
+    background-color: white;
   }
 `;
