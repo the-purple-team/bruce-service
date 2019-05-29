@@ -61,8 +61,8 @@ export const Color = styled.div`
   font-size: 22px;
   border: solid;
   border-width: 2px;
-  border-color: ${(props) =>
-    props.currentColor === props.itemColor ? '#E47911' : 'black'};
+  border-color: ${({ currentColor, itemColor }) =>
+    currentColor === itemColor ? '#E47911' : 'black'};
   min-width: 6%;
   padding: 8px;
   display: inline-block;
@@ -72,11 +72,9 @@ export const Color = styled.div`
   margin-right: 3px;
   border-radius: 3px;
   cursor: pointer;
-  color: ${(props) =>
-    props.itemColor !== 'white' &&
-    props.itemColor !== 'azure' &&
-    props.itemColor !== 'ivory'
-      ? `${props.itemColor}`
+  color: ${({ itemColor }) =>
+    itemColor !== 'white' && itemColor !== 'azure' && itemColor !== 'ivory'
+      ? `${itemColor}`
       : 'grey'};
 
   &:hover {
