@@ -72,13 +72,10 @@ export const Color = styled.div`
   margin-right: 3px;
   border-radius: 3px;
   cursor: pointer;
-  color: ${({ itemColor }) =>
-    itemColor !== 'white' && itemColor !== 'azure' && itemColor !== 'ivory'
-      ? `${itemColor}`
-      : 'grey'};
+  color: "black";
 
   &:hover {
-    background-color: rgb(236, 236, 236);
+    background-color: rgb(236, 236, 236, 0.32);
   }
 `;
 
