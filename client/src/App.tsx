@@ -1,6 +1,6 @@
-import React from 'react';
+import * as React from 'react';
 import ReactDOM from 'react-dom';
-import { Wrapper, NavButton } from './elements.jsx';
+import {Wrapper, NavButton} from './elements.jsx';
 import Product from './Product.jsx';
 import AllProductsLinkGenerator from './AllProductsLinkGenerator.jsx';
 const $ = require('jquery');
@@ -10,7 +10,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       currentProduct: {},
-      allProducts: [{ title: 'Blank', id: 45 }],
+      allProducts: [{title: 'Blank', id: 45}],
     };
   }
 
@@ -19,15 +19,8 @@ class App extends React.Component {
       $.ajax({
         type: 'GET',
         url: `/product${window.location.pathname.slice(9)}`,
-        success: ({
-          id,
-          title,
-          description,
-          product_price,
-          seller,
-          colors,
-        }) => {
-          this.setState((state) => ({
+        success: ({id, title, description, product_price, seller, colors}) => {
+          this.setState(state => ({
             currentProduct: {
               id: id,
               title: title,
@@ -43,13 +36,12 @@ class App extends React.Component {
       $.ajax({
         type: 'GET',
         url: '/getallproducts',
-        success: (results) => {
-          this.setState((state) => ({
+        success: results => {
+          this.setState(state => ({
             allProducts: results,
           }));
         },
-        error: (err) =>
-          console.log('TCL: App -> componentDidMount -> err', err),
+        error: err => console.log('TCL: App -> componentDidMount -> err', err),
       });
     }
   }
