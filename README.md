@@ -7,6 +7,9 @@ From within the root directory:
 ```sh
 npm install
 ```
+### Starting service
+
+From the root of the service folder, run `npm start`.
 
 ### MongoDB Schema
 
