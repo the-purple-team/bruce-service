@@ -2,6 +2,7 @@
   "scripts": {
     "react": "webpack -d --watch",
     "server": "nodemon server/index.js",
+    "start": "concurrently --kill-others \"npm run server\" \"npm run react\" ",
     "test": "jest tests/",
     "seedDb": "node utilities/_dbSeeder.js"
   },
@@ -13,6 +14,7 @@
     "babel-loader": "^8.0.5",
     "babel-preset-es2016": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "concurrently": "^4.1.0",
     "css-loader": "^2.1.1",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
