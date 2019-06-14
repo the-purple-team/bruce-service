@@ -2,11 +2,8 @@
 
 ### Installing Dependencies
 
-From within the root directory:
+From within the root directory: `npm install`
 
-```sh
-npm install
-```
 ### Starting service
 
 From the root of the service folder, run `npm start`.
@@ -26,23 +23,14 @@ let productInfoSchema = mongoose.Schema({
 
 ### Seeding Script
 
-To seed the database with 100 items matching the datashape of the above schema run:
-
-```
-npm run seedDb
-```
+To seed the database with 100 items matching the datashape of the above schema run: `npm run seedDb`
 
 ### API
 
-Get one item from database:
-```
-/product/id
-```
+Get one item from database: `/product/id`
 
 ### Render Specific Product (Front End)
 
-To render a specific product on the frontend, simply hit this endpoint:
-```
-/products/id
-```
+To render a specific product on the frontend, simply hit this endpoint: `/products/id`
+
 It will render this services' App and make a call to `/product/id` automatically to fetch the required data.
