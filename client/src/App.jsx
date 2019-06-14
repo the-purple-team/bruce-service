@@ -41,7 +41,7 @@ class App extends React.Component {
     } else {
       $.ajax({
         type: 'GET',
-        url: '/getallproducts',
+        url: 'http://localhost:8080/getallproducts',
         success: (results) => {
           this.setState((state) => ({
             allProducts: results,
