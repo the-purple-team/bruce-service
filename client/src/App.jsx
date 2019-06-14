@@ -17,7 +17,7 @@ class App extends React.Component {
     if (window.location.pathname !== '/') {
       $.ajax({
         type: 'GET',
-        url: `/product${window.location.pathname.slice(9)}`,
+        url: `http://localhost:8080/product${window.location.pathname.slice(9)}`,
         success: ({
           id,
           title,

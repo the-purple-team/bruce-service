@@ -19,7 +19,8 @@ describe('renders homepage', () => {
     );
     console.log(AllProductsLinkGeneratorComponent.debug());
     expect(AppComponent).toBeDefined();
-    expect(AllProductsLinkGeneratorComponent.find(<Link />)).toHaveLength(4);
+    // expect(AllProductsLinkGeneratorComponent.find(<Link />)).toHaveLength(4);
+    expect(AllProductsLinkGeneratorComponent.find('.bPeFxW')).toHaveLength(4);
   });
 });
 
