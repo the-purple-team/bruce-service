@@ -1,9 +1,13 @@
 const mongoose = require('mongoose');
 
 mongoose.connect(
-  'mongodb+srv://fec-bruce-service:randompassword@fec-bruce-service-1r15o.mongodb.net/test?retryWrites=true&w=majority',
+  'mongodb+srv://fec-bruce-service:randompassword@fec-bruce-service-1r15o.mongodb.net/test?retryWrites=true',
   { useNewUrlParser: true }
 );
+
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', () => console.log('connected to mongoDB'));
 
 let productSchema = mongoose.Schema({
   id: { type: Number, required: true, unique: true },
