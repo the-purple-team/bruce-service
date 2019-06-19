@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/fec', { useNewUrlParser: true });
+mongoose.connect(
+  'mongodb+srv://fec-bruce-service:randompassword@fec-bruce-service-1r15o.mongodb.net/test?retryWrites=true&w=majority',
+  { useNewUrlParser: true }
+);
 
 let productSchema = mongoose.Schema({
   id: { type: Number, required: true, unique: true },
