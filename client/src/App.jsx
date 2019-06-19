@@ -41,7 +41,10 @@ class App extends React.Component {
     } else {
       $.ajax({
         type: 'GET',
-        url: '/getallproducts',
+        url: `${window.location.href
+          .split('/')
+          .slice(0, window.location.href.split('/').length - 1)
+          .join('/')}/getallproducts`,
         success: (results) => {
           this.setState((state) => ({
             allProducts: results,
