@@ -20,8 +20,8 @@ app.get('/product/:id', (req, res) => {
 });
 
 app.get('/getallproducts', (req, res) => {
-  queryAllFromDatabase((result) => {
-    res.send(result);
+  queryAllFromDatabase((result, successBool) => {
+    res.send(result.concat({ title: `Passed: ${successBool}`, id: 01 }));
   });
 });
 

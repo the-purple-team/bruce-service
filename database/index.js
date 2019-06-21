@@ -65,7 +65,7 @@ const queryAllFromDatabase = (cb) => {
         };
         allProducts.push(obj);
       });
-      cb(allProducts);
+      cb(allProducts, true);
     }
   });
 };

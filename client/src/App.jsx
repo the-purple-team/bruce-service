@@ -9,7 +9,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       currentProduct: {},
-      allProducts: [{ title: 'Blank', id: 45 }],
+      allProducts: [{ title: 'Loading...', id: 0 }],
     };
   }
 
