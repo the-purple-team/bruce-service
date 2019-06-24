@@ -2,7 +2,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  text-align: center;
+  text-align: left;
 `;
 
 export const Title = styled.div`
@@ -16,7 +16,6 @@ export const Description = styled.div`
   font-size: 16px;
   margin-bottom: 18px !important;
   margin-top: 10px !important;
-  display: list-item;
   white-space: pre;
 `;
 
@@ -63,8 +62,8 @@ export const Color = styled.div`
   border-width: 2px;
   border-color: ${({ currentColor, itemColor }) =>
     currentColor === itemColor ? '#E47911' : 'black'};
-  min-width: 6%;
-  padding: 8px;
+  min-width: 30px;
+  padding: 6px;
   display: inline-block;
   height: 25px;
   margin: auto;
@@ -72,7 +71,7 @@ export const Color = styled.div`
   margin-right: 3px;
   border-radius: 3px;
   cursor: pointer;
-  color: "black";
+  color: 'black';
 
   &:hover {
     background-color: rgb(236, 236, 236, 0.32);

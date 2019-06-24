@@ -7,6 +7,7 @@ import {
   Color,
   CurrentColor,
 } from './elements.jsx';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const Colors = ({ children, updateCurrentColor, currentColor }) =>
   children
@@ -17,17 +18,26 @@ const Colors = ({ children, updateCurrentColor, currentColor }) =>
             currentColor={currentColor}
             onClick={() => updateCurrentColor(item)}
           >
-            {item}
+            <div
+              style={{
+                backgroundColor: `${item}`,
+                width: '100%',
+                height: '100%',
+                borderRadius: '15px',
+              }}
+            />
           </Color>
         ) : null
       )
     : null;
 
+const loadingMessage = 'Loading...';
+
 class Product extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentColor: null,
+      currentColor: loadingMessage,
     };
     this.updateCurrentColor = this.updateCurrentColor.bind(this);
   }
@@ -42,7 +52,7 @@ class Product extends React.Component {
     console.log(this.props.currentProduct);
     // TODO: Fix this.props.currentProduct.id is undefined
     this.setState((state) => ({
-      currentColor: `${this.props.currentProduct.id}`,
+      currentColor: '',
     }));
   }
 
@@ -58,28 +68,46 @@ class Product extends React.Component {
 
     return (
       <div key={id}>
-        <Title>{title}</Title>
-        <Seller>{seller}</Seller>
-        <Price>{product_price}</Price>
-        <CurrentColor>
-          Color:{' '}
-          <div
-            style={{
-              fontWeight: '700',
-              display: 'inline-block',
-              color: '#111',
-            }}
-          >
-            {this.state.currentColor}
-          </div>
-        </CurrentColor>
-        <Colors
-          currentColor={this.state.currentColor}
-          updateCurrentColor={this.updateCurrentColor}
-        >
-          {colors}
-        </Colors>
-        <Description>{description}</Description>
+        {title ? (
+          <>
+            <Title>{title}</Title>
+            <Seller>{seller}</Seller>
+            <hr />
+            <Price>{product_price}</Price>
+            <CurrentColor>
+              Color:{' '}
+              <div
+                style={{
+                  fontWeight: '700',
+                  display: 'inline-block',
+                  color: '#111',
+                }}
+              >
+                {this.state.currentColor}
+              </div>
+            </CurrentColor>
+            <Colors
+              currentColor={this.state.currentColor}
+              updateCurrentColor={this.updateCurrentColor}
+            >
+              {colors}
+            </Colors>
+            <Description>
+              <ul style={{ listStylePosition: 'inside', paddingLeft: '0px' }}>
+                {description ? (
+                  description.split('\n').map((item) => <li>{item}</li>)
+                ) : (
+                  <h3>{loadingMessage}</h3>
+                )}
+              </ul>
+            </Description>
+          </>
+        ) : (
+          <CircularProgress
+            style={{ margin: '10% 50%' }}
+            color="rgb(35, 47, 62)"
+          />
+        )}
       </div>
     );
   }
