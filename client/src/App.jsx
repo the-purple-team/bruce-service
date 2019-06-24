@@ -1,5 +1,5 @@
 import React from 'react';
-import { Wrapper, NavButton } from './elements.jsx';
+import { Wrapper } from './elements.jsx';
 import Product from './Product.jsx';
 import AllProductsLinkGenerator from './AllProductsLinkGenerator.jsx';
 const $ = require('jquery');
@@ -59,8 +59,6 @@ class App extends React.Component {
   render() {
     return (
       <Wrapper>
-        <h1>Welcome to Amazon!</h1>
-        <NavButton href="/">Home</NavButton>
         {window.location.pathname !== '/' ? (
           <Product currentProduct={this.state.currentProduct} />
         ) : (
