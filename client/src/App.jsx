@@ -17,7 +17,7 @@ class App extends React.Component {
     if (window.location.pathname !== '/') {
       $.ajax({
         type: 'GET',
-        url: `/product${window.location.pathname.slice(9)}`,
+        url: `http://ec2-13-58-222-178.us-east-2.compute.amazonaws.com:8080/product${window.location.pathname.slice(9)}`,
         success: ({
           id,
           title,
@@ -41,10 +41,7 @@ class App extends React.Component {
     } else {
       $.ajax({
         type: 'GET',
-        url: `${window.location.href
-          .split('/')
-          .slice(0, window.location.href.split('/').length - 1)
-          .join('/')}/getallproducts`,
+        url: `http://ec2-13-58-222-178.us-east-2.compute.amazonaws.com:8080/getallproducts`,
         success: (results) => {
           this.setState((state) => ({
             allProducts: results,
