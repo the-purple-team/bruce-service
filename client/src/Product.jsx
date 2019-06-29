@@ -67,7 +67,7 @@ class Product extends React.Component {
     } = this.props.currentProduct;
 
     return (
-      <div key={id}>
+      <div key={id} style={{ paddingTop: '75px' }}>
         {title ? (
           <>
             <Title>{title}</Title>
