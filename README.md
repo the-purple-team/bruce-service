@@ -8,6 +8,8 @@ From within the root directory: `npm install`
 
 From the root of the service folder, run `npm start`.
 
+If you get an error message saying `can't find module '.chunkGroup'`, try running `npm ci` to cleanly uninstall and reinstall all the npm packages.
+
 ### MongoDB Schema
 
 ```
