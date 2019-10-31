@@ -33,7 +33,7 @@
     "faker": "^4.1.0",
     "jest-enzyme": "^7.0.2",
     "jquery": "^3.4.1",
-    "mongoose": "^5.5.5",
+    "mongoose": "^5.7.5",
     "nodemon": "^1.19.0",
     "path": "^0.12.7",
     "react": "^16.8.6",
